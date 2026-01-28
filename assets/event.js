@@ -35,35 +35,35 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Carousel Functionality
-let currentSlide = 0;
-const totalSlides = 4;
-
-function updateCarousel() {
-  const carousel = document.getElementById("memberCarousel");
-  const items = document.querySelectorAll(".carousel-item");
-  const indicators = document.querySelectorAll(".indicator");
-
-  // Update carousel position
-  carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-  // Update active indicators
-  items.forEach((item) => item.classList.remove("active"));
-  indicators.forEach((ind) => ind.classList.remove("active"));
-
-  items[currentSlide].classList.add("active");
-  indicators[currentSlide].classList.add("active");
-}
-
-function moveCarousel(direction) {
-  currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-  updateCarousel();
-}
-
-function goToSlide(slideIndex) {
-  currentSlide = slideIndex;
-  updateCarousel();
-}
+// Carousel Functionality - DISABLED (using grid layout now)
+// let currentSlide = 0;
+// const totalSlides = 4;
+//
+// function updateCarousel() {
+//   const carousel = document.getElementById("memberCarousel");
+//   const items = document.querySelectorAll(".carousel-item");
+//   const indicators = document.querySelectorAll(".indicator");
+//
+//   // Update carousel position
+//   carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+//
+//   // Update active indicators
+//   items.forEach((item) => item.classList.remove("active"));
+//   indicators.forEach((ind) => ind.classList.remove("active"));
+//
+//   items[currentSlide].classList.add("active");
+//   indicators[currentSlide].classList.add("active");
+// }
+//
+// function moveCarousel(direction) {
+//   currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+//   updateCarousel();
+// }
+//
+// function goToSlide(slideIndex) {
+//   currentSlide = slideIndex;
+//   updateCarousel();
+// }
 
 // FAQ Toggle Function
 function toggleFAQ(element) {
@@ -81,10 +81,10 @@ function toggleFAQ(element) {
   }
 }
 
-// Initialize carousel on load
-window.addEventListener("load", () => {
-  updateCarousel();
-});
+// Initialize carousel on load - DISABLED (using grid layout now)
+// window.addEventListener("load", () => {
+//   updateCarousel();
+// });
 
 // Hamburger Menu Toggle
 const hamburger = document.querySelector(".hamburger");
