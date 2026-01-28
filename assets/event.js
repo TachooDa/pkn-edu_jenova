@@ -45,7 +45,7 @@ function updateCarousel() {
   const indicators = document.querySelectorAll(".indicator");
 
   // Update carousel position
-  carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+  // carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
 
   // Update active indicators
   items.forEach((item) => item.classList.remove("active"));
@@ -69,12 +69,12 @@ function goToSlide(slideIndex) {
 function toggleFAQ(element) {
   const faqItem = element.parentElement;
   const isActive = faqItem.classList.contains("active");
-  
+
   // Close all FAQ items
   document.querySelectorAll(".faq-item").forEach((item) => {
     item.classList.remove("active");
   });
-  
+
   // Open clicked FAQ item if it was not active
   if (!isActive) {
     faqItem.classList.add("active");
