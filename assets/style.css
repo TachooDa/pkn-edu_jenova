@@ -215,6 +215,126 @@ body {
 }
 
 /* ===== MAIN CONTENT STYLES ===== */
+/* Keberagaman Indonesia Section */
+.diversity {
+  padding: 80px 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.diversity h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a237e;
+  font-weight: 700;
+}
+
+.diversity-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.diversity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.diversity-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.diversity-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #1a237e 0%, #3949ab 50%, #f9a825 100%);
+}
+
+.diversity-card:hover {
+  transform: translateY(-12px);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(26, 35, 126, 0.25);
+  border-color: rgba(249, 168, 37, 0.3);
+}
+
+.diversity-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.diversity-card:hover .diversity-icon {
+  transform: scale(1.15) rotate(5deg);
+  background: linear-gradient(135deg, #f9a825 0%, #ffb940 100%);
+}
+
+.diversity-card h3 {
+  font-size: 1.5rem;
+  color: #1a237e;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.diversity-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.diversity-list {
+  list-style: none;
+}
+
+.diversity-list li {
+  font-size: 0.9rem;
+  color: #333;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.diversity-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #f9a825;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.diversity-list strong {
+  color: #1a237e;
+  font-weight: 600;
+}
+
 /* Member Section */
 .members {
   padding: 80px 2rem;
@@ -495,102 +615,6 @@ body {
   box-shadow: 0 12px 40px 0 rgba(249, 168, 37, 0.6);
 }
 
-/* About Section */
-.about {
-  padding: 80px 2rem;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-}
-
-.about h2 {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  color: #1a237e;
-  font-weight: 700;
-}
-
-.about > .container > p {
-  text-align: center;
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  line-height: 1.8;
-  color: #555;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  margin-top: 3rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.about-card {
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(26, 35, 126, 0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  border-left: 4px solid #f9a825;
-}
-
-.about-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #f9a825 0%, #c62828 100%);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-  transform-origin: left;
-}
-
-.about-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 60px rgba(26, 35, 126, 0.15);
-  background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
-}
-
-.about-card:hover::before {
-  transform: scaleX(1);
-}
-
-.about-card i {
-  font-size: 3.5rem;
-  background: linear-gradient(135deg, #f9a825 0%, #ffb940 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  transition: all 0.4s ease;
-}
-
-.about-card:hover i {
-  transform: scale(1.15) rotate(10deg);
-}
-
-.about-card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: #1a237e;
-  font-weight: 600;
-}
-
-.about-card p {
-  color: #666;
-  line-height: 1.7;
-  font-size: 0.95rem;
-}
-
 /* Materi Section */
 .materi {
   padding: 80px 2rem;
@@ -654,7 +678,11 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(249, 168, 37, 0.1) 0%, rgba(198, 40, 40, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(249, 168, 37, 0.1) 0%,
+    rgba(198, 40, 40, 0.1) 100%
+  );
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 0;
@@ -705,7 +733,8 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -849,113 +878,6 @@ body {
   background: #0d1b4e;
 }
 
-/* Learning Path Section */
-.learning-path {
-  padding: 80px 2rem;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-}
-
-.learning-path h2 {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  color: #1a237e;
-  font-weight: 700;
-}
-
-.section-subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 3rem;
-  display: block;
-}
-
-.learning-steps {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.step-card {
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: 20px;
-  text-align: center;
-  flex: 1;
-  min-width: 250px;
-  max-width: 300px;
-  box-shadow: 0 10px 40px rgba(26, 35, 126, 0.08);
-  transition: all 0.4s ease;
-  position: relative;
-}
-
-.step-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 60px rgba(26, 35, 126, 0.15);
-}
-
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #f9a825 0%, #ffb940 100%);
-  color: #1a237e;
-  font-size: 1.8rem;
-  font-weight: bold;
-  border-radius: 50%;
-  margin-bottom: 1.5rem;
-}
-
-.step-card h3 {
-  font-size: 1.6rem;
-  color: #1a237e;
-  margin-bottom: 0.8rem;
-}
-
-.step-card p {
-  color: #666;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-}
-
-.step-card ul {
-  list-style: none;
-  text-align: left;
-}
-
-.step-card li {
-  color: #555;
-  padding: 0.5rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.step-card li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #f9a825;
-  font-weight: bold;
-}
-
-.step-divider {
-  font-size: 1.5rem;
-  color: #f9a825;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
 /* FAQ Section */
 .faq {
   padding: 80px 2rem;
@@ -972,6 +894,8 @@ body {
 
 .faq .section-subtitle {
   color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
 }
 
 .faq-grid {
@@ -1058,6 +982,7 @@ body {
 
 .timeline .section-subtitle {
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 .timeline-container {
@@ -1329,6 +1254,23 @@ body {
     font-size: 2rem;
   }
 
+  .diversity {
+    padding: 60px 1.5rem;
+  }
+
+  .diversity h2 {
+    font-size: 2rem;
+  }
+
+  .diversity-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .diversity-card {
+    padding: 2rem;
+  }
+
   .members-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -1460,6 +1402,44 @@ body {
 
   .materi-card p {
     font-size: 0.85rem;
+  }
+
+  .diversity {
+    padding: 40px 1rem;
+  }
+
+  .diversity h2 {
+    font-size: 1.8rem;
+  }
+
+  .diversity-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .diversity-grid {
+    gap: 1.5rem;
+  }
+
+  .diversity-card {
+    padding: 1.5rem;
+  }
+
+  .diversity-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .diversity-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .diversity-card p {
+    font-size: 0.85rem;
+  }
+
+  .diversity-list li {
+    font-size: 0.8rem;
   }
 
   .members {
