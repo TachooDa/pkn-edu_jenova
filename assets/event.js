@@ -45,7 +45,7 @@ function updateCarousel() {
   const indicators = document.querySelectorAll(".indicator");
 
   // Update carousel position
-  // carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+  carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
 
   // Update active indicators
   items.forEach((item) => item.classList.remove("active"));
