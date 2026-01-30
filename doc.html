@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dokumentasi Teknikal - Website PKN Edu</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        color: #1a237e;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #e0e0e0;
+      }
+
+      h2 {
+        color: #1a237e;
+        font-size: 1.8rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        border-left: 5px solid #667eea;
+      }
+
+      h3 {
+        color: #764ba2;
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+
+      .info-box {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1.5rem 0;
+        border-left: 5px solid #667eea;
+      }
+
+      .info-box strong {
+        color: #1a237e;
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .tech-stack {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .tech-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+        border: 2px solid #e0e0e0;
+      }
+
+      .tech-card:hover {
+        transform: translateY(-5px);
+        border-color: #667eea;
+      }
+
+      .tech-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .tech-card h4 {
+        color: #1a237e;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-list {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
+      }
+
+      .section-list ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .section-list li {
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+        background: white;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .section-list li strong {
+        color: #1a237e;
+        display: inline-block;
+        min-width: 180px;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .feature-item {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      }
+
+      .feature-item h4 {
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+      }
+
+      code {
+        background: #f4f4f4;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        color: #c62828;
+      }
+
+      .code-block {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1rem 0;
+        font-family: "Courier New", monospace;
+      }
+
+      .file-structure {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 12px;
+        font-family: "Courier New", monospace;
+        margin: 1rem 0;
+      }
+
+      .file-structure ul {
+        list-style: none;
+        padding-left: 1.5rem;
+      }
+
+      .file-structure li::before {
+        content: "📁 ";
+        margin-right: 0.5rem;
+      }
+
+      .file-structure .file::before {
+        content: "📄 ";
+      }
+
+      .highlight {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: bold;
+      }
+
+      .warning {
+        background: #fff3cd;
+        border-left: 5px solid #ffc107;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      .success {
+        background: #d4edda;
+        border-left: 5px solid #28a745;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      th {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1rem;
+        text-align: left;
+      }
+
+      td {
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      tr:hover {
+        background: #f8f9fa;
+      }
+
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        .container {
+          box-shadow: none;
+          padding: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        .container {
+          padding: 1.5rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        .tech-stack,
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📚 DOKUMENTASI TEKNIKAL</h1>
+      <p class="subtitle">Website Pendidikan Kewarganegaraan (PKN Edu)</p>
+
+      <!-- Informasi Umum -->
+      <div class="info-box">
+        <strong>📌 Informasi Project</strong>
+        <p>
+          <strong>Nama Project:</strong> PKN Edu - Website Pembelajaran
+          Pendidikan Kewarganegaraan
+        </p>
+        <p>
+          <strong>Tujuan:</strong> Menyediakan platform edukasi interaktif
+          tentang materi PKN dan keberagaman budaya Indonesia
+        </p>
+        <p>
+          <strong>Tim Pengembang:</strong> Kelompok 5 (Jenova Fiandra, Shelita
+          Nuroktavia Pertiwi, Raden Enola Antapani, Putri Liani Fachrurozi)
+        </p>
+      </div>
+
+      <!-- Teknologi yang Digunakan -->
+      <h2>🛠️ Teknologi yang Digunakan</h2>
+
+      <div class="tech-stack">
+        <div class="tech-card">
+          <div class="tech-icon">📝</div>
+          <h4>HTML5</h4>
+          <p>Struktur dan konten website</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">🎨</div>
+          <h4>CSS3</h4>
+          <p>Styling dan tampilan visual</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">⚡</div>
+          <h4>JavaScript</h4>
+          <p>Interaktivitas dan fungsi dinamis</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">🎯</div>
+          <h4>Font Awesome</h4>
+          <p>Icon library untuk UI</p>
+        </div>
+      </div>
+
+      <!-- Struktur File -->
+      <h2>📂 Struktur File Project</h2>
+
+      <div class="file-structure">
+        <ul>
+          <li>
+            PKN-Edu-Website/
+            <ul>
+              <li class="file">index.html (File utama website)</li>
+              <li class="file">style.css (File styling)</li>
+              <li class="file">event.js (File JavaScript)</li>
+              <li>
+                assets/
+                <ul>
+                  <li class="file">style.css (Styling utama)</li>
+                  <li class="file">event.js (Fungsi interaktif)</li>
+                </ul>
+              </li>
+              <li>
+                image/
+                <ul>
+                  <li class="file">icon_1.png (Logo website)</li>
+                  <li>diversity/ (Gambar keberagaman)</li>
+                  <li>agama/ (Gambar agama)</li>
+                  <li>place/ (Gambar tempat ibadah)</li>
+                  <li>suku/ (Gambar suku bangsa)</li>
+                  <li>pakaian/ (Gambar pakaian adat)</li>
+                  <li>tarian/ (Gambar tarian)</li>
+                  <li>rumah/ (Gambar rumah adat)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Penjelasan File -->
+      <h2>📄 Penjelasan File Utama</h2>
+
+      <h3>1. index.html</h3>
+      <div class="info-box">
+        <strong>Fungsi:</strong> File utama yang berisi struktur HTML website
+        <ul style="margin-top: 1rem; margin-left: 2rem">
+          <li>Mendefinisikan layout dan section website</li>
+          <li>Menghubungkan file CSS dan JavaScript</li>
+          <li>Berisi konten materi PKN dan keberagaman Indonesia</li>
+        </ul>
+      </div>
+
+      <h3>2. style.css</h3>
+      <div class="info-box">
+        <strong>Fungsi:</strong> File styling untuk tampilan visual website
+        <ul style="margin-top: 1rem; margin-left: 2rem">
+          <li>Mengatur warna, font, dan layout</li>
+          <li>Membuat desain responsive untuk berbagai ukuran layar</li>
+          <li>Animasi dan efek visual (hover, transition, dll)</li>
+          <li>Glassmorphism effect untuk tampilan modern</li>
+        </ul>
+      </div>
+
+      <h3>3. event.js</h3>
+      <div class="info-box">
+        <strong>Fungsi:</strong> File JavaScript untuk fitur interaktif
+        <ul style="margin-top: 1rem; margin-left: 2rem">
+          <li>Typewriter effect pada hero section</li>
+          <li>Carousel/slider untuk gambar keberagaman</li>
+          <li>Modal popup untuk detail informasi</li>
+          <li>Hamburger menu untuk mobile</li>
+          <li>Smooth scrolling dan animasi</li>
+        </ul>
+      </div>
+
+      <!-- Fitur Website -->
+      <h2>✨ Fitur-Fitur Website</h2>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>🏠 Navigation Bar</h4>
+          <p>
+            Menu navigasi sticky yang mengikuti scroll dengan efek blur saat
+            di-scroll
+          </p>
+        </div>
+        <div class="feature-item">
+          <h4>🎬 Hero Section</h4>
+          <p>
+            Banner utama dengan typewriter effect dan background image menarik
+          </p>
+        </div>
+        <div class="feature-item">
+          <h4>📚 Materi PKN</h4>
+          <p>
+            6 Card materi: Pancasila, Konstitusi, Hak & Kewajiban, Demokrasi,
+            Nilai Luhur, Toleransi
+          </p>
+        </div>
+        <div class="feature-item">
+          <h4>🎨 Diversity Section</h4>
+          <p>
+            Showcase keberagaman: Suku Bangsa, Agama, Pakaian Adat, Tarian,
+            Rumah Adat, Tempat Ibadah
+          </p>
+        </div>
+        <div class="feature-item">
+          <h4>🎪 Image Carousel</h4>
+          <p>Slider gambar otomatis dengan kontrol manual dan indicator dots</p>
+        </div>
+        <div class="feature-item">
+          <h4>📱 Responsive Design</h4>
+          <p>Tampilan optimal di desktop, tablet, dan smartphone</p>
+        </div>
+        <div class="feature-item">
+          <h4>🪟 Modal Popup</h4>
+          <p>Detail informasi lengkap dalam popup window yang elegan</p>
+        </div>
+        <div class="feature-item">
+          <h4>🎯 Smooth Animation</h4>
+          <p>Animasi halus saat hover, scroll, dan interaksi lainnya</p>
+        </div>
+      </div>
+
+      <!-- Section Website -->
+      <h2>🎯 Section Website</h2>
+
+      <div class="section-list">
+        <ul>
+          <li>
+            <strong>1. Navigation Bar</strong> - Menu navigasi dengan logo dan
+            link ke section lain
+          </li>
+          <li>
+            <strong>2. Hero Section</strong> - Banner utama dengan judul
+            "Pendidikan Kewarganegaraan" dan tombol CTA
+          </li>
+          <li>
+            <strong>3. Materi Section</strong> - 6 card materi PKN dengan modal
+            detail
+          </li>
+          <li>
+            <strong>4. Diversity Section</strong> - 6 card keberagaman dengan
+            carousel gambar
+          </li>
+          <li>
+            <strong>5. Timeline Section</strong> - Timeline sejarah atau
+            perkembangan (jika ada)
+          </li>
+          <li>
+            <strong>6. FAQ Section</strong> - Pertanyaan yang sering ditanyakan
+          </li>
+          <li>
+            <strong>7. Member Section</strong> - Informasi anggota kelompok
+          </li>
+          <li><strong>8. Footer</strong> - Informasi kontak dan copyright</li>
+        </ul>
+      </div>
+
+      <!-- Konsep Design -->
+      <h2>🎨 Konsep Design</h2>
+
+      <h3>Color Scheme (Palet Warna)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Warna</th>
+            <th>Kode Hex</th>
+            <th>Penggunaan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Navy Blue</td>
+            <td><code>#1a237e</code></td>
+            <td>Primary color (navbar, heading)</td>
+          </tr>
+          <tr>
+            <td>Gold</td>
+            <td><code>#f9a825</code></td>
+            <td>Accent color (hover, highlight)</td>
+          </tr>
+          <tr>
+            <td>Red</td>
+            <td><code>#c62828</code></td>
+            <td>CTA button, border accent</td>
+          </tr>
+          <tr>
+            <td>Purple Gradient</td>
+            <td><code>#667eea - #764ba2</code></td>
+            <td>Background gradient, card hover</td>
+          </tr>
+          <tr>
+            <td>White</td>
+            <td><code>#ffffff</code></td>
+            <td>Card background, text</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Typography (Font)</h3>
+      <div class="info-box">
+        <strong>Font Utama:</strong> Segoe UI, Helvetica (sans-serif)
+        <p style="margin-top: 0.5rem">
+          <strong>Alasan:</strong> Font modern, mudah dibaca, dan profesional
+        </p>
+      </div>
+
+      <!-- Teknik CSS -->
+      <h2>💅 Teknik CSS yang Digunakan</h2>
+
+      <h3>1. Glassmorphism Effect</h3>
+      <div class="code-block">
+        background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(255, 255,
+        255, 0.3);
+      </div>
+      <p>
+        <strong>Penjelasan:</strong> Efek kaca buram (blur) yang memberikan
+        kesan modern dan elegan pada card.
+      </p>
+
+      <h3>2. Gradient Background</h3>
+      <div class="code-block">
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      </div>
+      <p>
+        <strong>Penjelasan:</strong> Gradasi warna dari ungu ke pink dengan
+        sudut 135 derajat.
+      </p>
+
+      <h3>3. Hover Animation</h3>
+      <div class="code-block">
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform:
+        translateY(-12px) scale(1.02); box-shadow: 0 25px 60px rgba(0, 0, 0,
+        0.25);
+      </div>
+      <p>
+        <strong>Penjelasan:</strong> Animasi saat hover yang mengangkat card
+        dengan efek bayangan.
+      </p>
+
+      <h3>4. Responsive Grid</h3>
+      <div class="code-block">
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,
+        1fr)); gap: 2rem;
+      </div>
+      <p>
+        <strong>Penjelasan:</strong> Layout grid yang otomatis menyesuaikan
+        jumlah kolom berdasarkan lebar layar.
+      </p>
+
+      <!-- Fungsi JavaScript -->
+      <h2>⚡ Fungsi JavaScript Utama</h2>
+
+      <h3>1. Typewriter Effect</h3>
+      <div class="info-box">
+        <strong>Fungsi:</strong> <code>typeWriter()</code>
+        <p style="margin-top: 0.5rem">
+          <strong>Cara Kerja:</strong> Menampilkan text "Kewarganegaraan"
+          karakter demi karakter seperti sedang diketik.
+        </p>
+      </div>
+
+      <h3>2. Navbar Scroll Effect</h3>
+      <div class="info-box">
+        <strong>Event:</strong> <code>window.addEventListener('scroll')</code>
+        <p style="margin-top: 0.5rem">
+          <strong>Cara Kerja:</strong> Menambahkan class 'scrolled' saat halaman
+          di-scroll > 50px untuk memberikan efek blur pada navbar.
+        </p>
+      </div>
+
+      <h3>3. Carousel Functionality</h3>
+      <div class="info-box">
+        <strong>Class:</strong> <code>DiversitySection</code>
+        <p style="margin-top: 0.5rem"><strong>Cara Kerja:</strong></p>
+        <ul style="margin-left: 2rem">
+          <li>Mengelola slider gambar pada diversity cards</li>
+          <li>Auto-play setiap 5 detik</li>
+          <li>Kontrol manual dengan tombol prev/next</li>
+          <li>Indicator dots untuk navigasi langsung</li>
+          <li>Touch/swipe support untuk mobile</li>
+        </ul>
+      </div>
+
+      <h3>4. Modal Popup</h3>
+      <div class="info-box">
+        <strong>Fungsi:</strong> <code>openMateriModal()</code> dan
+        <code>closeMateriModal()</code>
+        <p style="margin-top: 0.5rem">
+          <strong>Cara Kerja:</strong> Membuka dan menutup popup detail materi
+          dengan overlay background.
+        </p>
+      </div>
+
+      <h3>5. Hamburger Menu</h3>
+      <div class="info-box">
+        <strong>Target:</strong> Mobile navigation
+        <p style="margin-top: 0.5rem">
+          <strong>Cara Kerja:</strong> Toggle menu di layar kecil dengan animasi
+          hamburger icon menjadi X.
+        </p>
+      </div>
+
+      <!-- Responsive Design -->
+      <h2>📱 Responsive Breakpoints</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Device</th>
+            <th>Breakpoint</th>
+            <th>Perubahan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Desktop</td>
+            <td>> 1024px</td>
+            <td>Layout penuh dengan grid 2-3 kolom</td>
+          </tr>
+          <tr>
+            <td>Tablet</td>
+            <td>768px - 1024px</td>
+            <td>Grid 2 kolom, font size sedikit lebih kecil</td>
+          </tr>
+          <tr>
+            <td>Mobile</td>
+            <td>< 768px</td>
+            <td>Grid 1 kolom, hamburger menu, padding reduced</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Cara Menjalankan -->
+      <h2>🚀 Cara Menjalankan Website</h2>
+
+      <div class="success">
+        <strong>Langkah-langkah:</strong>
+        <ol style="margin-top: 1rem; margin-left: 2rem">
+          <li>Download semua file project (HTML, CSS, JS, dan folder image)</li>
+          <li>
+            Pastikan struktur folder sesuai dengan
+            <span class="highlight">Struktur File Project</span> di atas
+          </li>
+          <li>
+            Buka file <code>index.html</code> menggunakan browser (Chrome,
+            Firefox, Edge, dll)
+          </li>
+          <li>Website siap digunakan! ✅</li>
+        </ol>
+      </div>
+
+      <div class="warning">
+        <strong>⚠️ Catatan Penting:</strong>
+        <ul style="margin-top: 0.5rem; margin-left: 2rem">
+          <li>
+            Pastikan koneksi internet aktif untuk memuat Font Awesome icons
+          </li>
+          <li>
+            Gunakan browser modern (Chrome 90+, Firefox 88+, Edge 90+) untuk
+            hasil optimal
+          </li>
+          <li>
+            Semua gambar harus ada di folder yang sesuai agar tidak ada broken
+            image
+          </li>
+        </ul>
+      </div>
+
+      <!-- Browser Compatibility -->
+      <h2>🌐 Kompatibilitas Browser</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Browser</th>
+            <th>Minimum Version</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google Chrome</td>
+            <td>90+</td>
+            <td>✅ Fully Supported</td>
+          </tr>
+          <tr>
+            <td>Mozilla Firefox</td>
+            <td>88+</td>
+            <td>✅ Fully Supported</td>
+          </tr>
+          <tr>
+            <td>Microsoft Edge</td>
+            <td>90+</td>
+            <td>✅ Fully Supported</td>
+          </tr>
+          <tr>
+            <td>Safari</td>
+            <td>14+</td>
+            <td>✅ Fully Supported</td>
+          </tr>
+          <tr>
+            <td>Opera</td>
+            <td>76+</td>
+            <td>✅ Fully Supported</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Performance Tips -->
+      <h2>⚡ Tips Optimasi Performance</h2>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>🖼️ Optimasi Gambar</h4>
+          <p>
+            Gunakan format WebP atau kompress gambar untuk loading lebih cepat
+          </p>
+        </div>
+        <div class="feature-item">
+          <h4>📦 Minify Code</h4>
+          <p>Minify file CSS dan JS untuk ukuran file lebih kecil</p>
+        </div>
+        <div class="feature-item">
+          <h4>🚀 Lazy Loading</h4>
+          <p>Implementasi lazy loading untuk gambar yang tidak terlihat</p>
+        </div>
+        <div class="feature-item">
+          <h4>📱 Mobile First</h4>
+          <p>
+            Prioritaskan performa di mobile karena mayoritas user menggunakan
+            smartphone
+          </p>
+        </div>
+      </div>
+
+      <!-- Future Improvements -->
+      <h2>🔮 Saran Pengembangan Kedepan</h2>
+
+      <div class="section-list">
+        <ul>
+          <li>
+            <strong>Backend Integration</strong> - Tambahkan database untuk
+            menyimpan data materi dan user
+          </li>
+          <li>
+            <strong>User Authentication</strong> - Sistem login untuk siswa dan
+            guru
+          </li>
+          <li>
+            <strong>Quiz Feature</strong> - Tambahkan kuis interaktif untuk
+            menguji pemahaman
+          </li>
+          <li><strong>Search Function</strong> - Fitur pencarian materi</li>
+          <li><strong>Dark Mode</strong> - Toggle dark/light theme</li>
+          <li>
+            <strong>Multi Language</strong> - Support bahasa Indonesia dan
+            Inggris
+          </li>
+          <li>
+            <strong>PWA</strong> - Convert ke Progressive Web App untuk offline
+            access
+          </li>
+          <li>
+            <strong>Analytics</strong> - Tracking pengunjung dan behavior
+            analysis
+          </li>
+        </ul>
+      </div>
+
+      <!-- Troubleshooting -->
+      <h2>🔧 Troubleshooting (Mengatasi Masalah)</h2>
+
+      <h3>Problem: Gambar tidak muncul</h3>
+      <div class="info-box">
+        <strong>Solusi:</strong>
+        <ul style="margin-top: 0.5rem; margin-left: 2rem">
+          <li>Cek path gambar di HTML apakah sesuai dengan lokasi file</li>
+          <li>
+            Pastikan nama file dan extension gambar benar (case sensitive)
+          </li>
+          <li>Cek folder image dan sub-foldernya ada semua</li>
+        </ul>
+      </div>
+
+      <h3>Problem: Carousel tidak berjalan</h3>
+      <div class="info-box">
+        <strong>Solusi:</strong>
+        <ul style="margin-top: 0.5rem; margin-left: 2rem">
+          <li>Pastikan file event.js sudah ter-load dengan benar</li>
+          <li>Cek console browser (F12) untuk error message</li>
+          <li>Pastikan class name di HTML sesuai dengan selector di JS</li>
+        </ul>
+      </div>
+
+      <h3>Problem: Styling berantakan</h3>
+      <div class="info-box">
+        <strong>Solusi:</strong>
+        <ul style="margin-top: 0.5rem; margin-left: 2rem">
+          <li>Cek link CSS di tag &lt;head&gt; apakah path sudah benar</li>
+          <li>Clear cache browser (Ctrl + Shift + R)</li>
+          <li>Pastikan tidak ada syntax error di CSS</li>
+        </ul>
+      </div>
+
+      <h3>Problem: Icons Font Awesome tidak muncul</h3>
+      <div class="info-box">
+        <strong>Solusi:</strong>
+        <ul style="margin-top: 0.5rem; margin-left: 2rem">
+          <li>Pastikan koneksi internet aktif</li>
+          <li>Cek link CDN Font Awesome di tag &lt;head&gt;</li>
+          <li>Ganti dengan link CDN terbaru dari fontawesome.com</li>
+        </ul>
+      </div>
+
+      <!-- Credits -->
+      <h2>👥 Credits & Resources</h2>
+
+      <div class="info-box">
+        <strong>🎨 Design Resources:</strong>
+        <ul style="margin-top: 0.5rem; margin-left: 2rem">
+          <li>Font Awesome - Icon library</li>
+          <li>Google Fonts - Typography</li>
+          <li>Unsplash/Pexels - Stock images (jika digunakan)</li>
+        </ul>
+      </div>
+
+      <div class="info-box" style="margin-top: 1rem">
+        <strong>📚 Learning Resources:</strong>
+        <ul style="margin-top: 0.5rem; margin-left: 2rem">
+          <li>MDN Web Docs - HTML, CSS, JavaScript reference</li>
+          <li>W3Schools - Web development tutorials</li>
+          <li>CSS-Tricks - CSS tips and techniques</li>
+          <li>YouTube - Web development channels</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <h2>📞 Kontak Tim Pengembang</h2>
+
+      <div class="section-list">
+        <ul>
+          <li><strong>Jenova Fiandra</strong> - Anggota 1</li>
+          <li><strong>Shelita Nuroktavia Pertiwi</strong> - Anggota 2</li>
+          <li><strong>Raden Enola Antapani</strong> - Anggota 3</li>
+          <li><strong>Putri Liani Fachrurozi</strong> - Anggota 4</li>
+        </ul>
+      </div>
+
+      <!-- Footer Documentation -->
+      <div
+        style="
+          margin-top: 3rem;
+          padding-top: 2rem;
+          border-top: 2px solid #e0e0e0;
+          text-align: center;
+          color: #666;
+        "
+      >
+        <p><strong>Dokumentasi Website PKN Edu</strong></p>
+        <p>Dibuat untuk keperluan presentasi dan pembelajaran</p>
+        <p style="margin-top: 1rem">© 2025 Kelompok 5</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem">
+          Versi 1.0 - Januari 2025
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Print functionality
+      document.addEventListener("keydown", function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === "p") {
+          e.preventDefault();
+          window.print();
+        }
+      });
+
+      // Smooth scroll to sections (if using anchor links)
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
