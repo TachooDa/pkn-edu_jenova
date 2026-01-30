@@ -924,119 +924,164 @@ body {
 
 /* Member Section */
 .members {
-  padding: 80px 2rem;
-  background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+  position: relative;
+  padding: 100px 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
+}
+
+.members::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+  opacity: 0.3;
 }
 
 .members h2 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 0.5rem;
-  color: #1a237e;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .members-subtitle {
   text-align: center;
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 .members-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  max-width: 800px;
+  gap: 2.5rem;
+  max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .member-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2.5rem;
   text-align: center;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.member-card:hover {
-  transform: translateY(-15px);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 20px 50px rgba(26, 35, 126, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .member-card::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #1a237e 0%, #f9a825 50%, #c62828 100%);
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.member-card:hover::before {
+  left: 100%;
+}
+
+.member-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  border-color: rgba(102, 126, 234, 0.5);
 }
 
 .member-image-wrapper {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
-/* Polymorphic shapes untuk member images */
 .member-image {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 4.5rem;
   color: #fff;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.member-image::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
   border-radius: 50%;
 }
 
 .member-card:hover .member-image {
-  transform: scale(1.15);
-  box-shadow: 0 10px 25px rgba(26, 35, 126, 0.3);
-}
-
-.member-img {
-  display: none;
-}
-
-.member-info {
-  position: relative;
-  z-index: 1;
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
 }
 
 .member-info h3 {
-  font-size: 1.3rem;
-  color: #1a237e;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  color: #2d3748;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
 }
 
 .member-role {
-  font-size: 0.95rem;
-  color: #f9a825;
+  font-size: 1rem;
+  color: #667eea;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.member-desc {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .members-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 400px;
+  }
 
+  .members h2 {
+    font-size: 2.2rem;
+  }
+}
 /* Hero Section */
 .hero {
   background-size: cover;
