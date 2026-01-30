@@ -35,36 +35,586 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Carousel Functionality - DISABLED (using grid layout now)
-// let currentSlide = 0;
-// const totalSlides = 4;
-//
-// function updateCarousel() {
-//   const carousel = document.getElementById("memberCarousel");
-//   const items = document.querySelectorAll(".carousel-item");
-//   const indicators = document.querySelectorAll(".indicator");
-//
-//   // Update carousel position
-//   carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-//
-//   // Update active indicators
-//   items.forEach((item) => item.classList.remove("active"));
-//   indicators.forEach((ind) => ind.classList.remove("active"));
-//
-//   items[currentSlide].classList.add("active");
-//   indicators[currentSlide].classList.add("active");
-// }
-//
-// function moveCarousel(direction) {
-//   currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-//   updateCarousel();
-// }
-//
-// function goToSlide(slideIndex) {
-//   currentSlide = slideIndex;
-//   updateCarousel();
-// }
+// Diversity Modal & Carousel Functionality
+// ============================================
+// DIVERSITY SECTION - OPTIMIZED JAVASCRIPT
+// ============================================
 
+class DiversitySection {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    // Initialize on DOM ready
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => this.setup());
+    } else {
+      this.setup();
+    }
+  }
+
+  setup() {
+    this.initCarousels();
+    this.initModals();
+    this.initScrollAnimations();
+    this.initAccessibility();
+  }
+
+  // ============================================
+  // CAROUSEL FUNCTIONALITY
+  // ============================================
+
+  // initCarousels() {
+  //   const cards = document.querySelectorAll(".diversity-card");
+
+  //   cards.forEach((card) => {
+  //     const track = card.querySelector(".carousel-track");
+  //     const slides = card.querySelectorAll(".carousel-slide");
+  //     const prevBtn = card.querySelector(".prev-btn");
+  //     const nextBtn = card.querySelector(".next-btn");
+  //     const indicators = card.querySelectorAll(".indicator");
+
+  //     if (!track || slides.length === 0) return;
+
+  //     let currentSlide = 0;
+  //     const totalSlides = slides.length;
+  //     let autoPlayInterval;
+
+  //     // Update carousel display
+  //     const updateCarousel = (index) => {
+  //       // Remove active class from all
+  //       slides.forEach((slide) => slide.classList.remove("active"));
+  //       indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+  //       // Add active class to current
+  //       slides[index].classList.add("active");
+  //       indicators[index].classList.add("active");
+
+  //       // Announce to screen readers
+  //       const slideContent =
+  //         slides[index].querySelector(".slide-content h4").textContent;
+  //       this.announceToScreenReader(
+  //         `Slide ${index + 1} of ${totalSlides}: ${slideContent}`,
+  //       );
+  //     };
+
+  //     // Go to specific slide
+  //     const goToSlide = (index) => {
+  //       currentSlide = (index + totalSlides) % totalSlides;
+  //       updateCarousel(currentSlide);
+  //       resetAutoPlay();
+  //     };
+
+  //     // Next slide
+  //     const nextSlide = () => {
+  //       goToSlide(currentSlide + 1);
+  //     };
+
+  //     // Previous slide
+  //     const prevSlide = () => {
+  //       goToSlide(currentSlide - 1);
+  //     };
+
+  //     // Auto play
+  //     const startAutoPlay = () => {
+  //       autoPlayInterval = setInterval(nextSlide, 5000); // 5 seconds
+  //     };
+
+  //     const stopAutoPlay = () => {
+  //       if (autoPlayInterval) {
+  //         clearInterval(autoPlayInterval);
+  //       }
+  //     };
+
+  //     const resetAutoPlay = () => {
+  //       stopAutoPlay();
+  //       startAutoPlay();
+  //     };
+
+  //     // Event listeners
+  //     if (prevBtn) {
+  //       prevBtn.addEventListener("click", prevSlide);
+  //     }
+
+  //     if (nextBtn) {
+  //       nextBtn.addEventListener("click", nextSlide);
+  //     }
+
+  //     // Indicator clicks
+  //     indicators.forEach((indicator, index) => {
+  //       indicator.addEventListener("click", () => goToSlide(index));
+  //     });
+
+  //     // Touch/swipe support
+  //     let touchStartX = 0;
+  //     let touchEndX = 0;
+
+  //     track.addEventListener(
+  //       "touchstart",
+  //       (e) => {
+  //         touchStartX = e.changedTouches[0].screenX;
+  //         stopAutoPlay();
+  //       },
+  //       { passive: true },
+  //     );
+
+  //     track.addEventListener(
+  //       "touchend",
+  //       (e) => {
+  //         touchEndX = e.changedTouches[0].screenX;
+  //         handleSwipe();
+  //         startAutoPlay();
+  //       },
+  //       { passive: true },
+  //     );
+
+  //     const handleSwipe = () => {
+  //       const swipeThreshold = 50;
+  //       const diff = touchStartX - touchEndX;
+
+  //       if (Math.abs(diff) > swipeThreshold) {
+  //         if (diff > 0) {
+  //           nextSlide(); // Swipe left
+  //         } else {
+  //           prevSlide(); // Swipe right
+  //         }
+  //       }
+  //     };
+
+  //     // Keyboard navigation
+  //     card.addEventListener("keydown", (e) => {
+  //       if (e.target.closest(".carousel-container")) {
+  //         if (e.key === "ArrowLeft") {
+  //           e.preventDefault();
+  //           prevSlide();
+  //         } else if (e.key === "ArrowRight") {
+  //           e.preventDefault();
+  //           nextSlide();
+  //         }
+  //       }
+  //     });
+
+  //     // Pause on hover
+  //     card.addEventListener("mouseenter", stopAutoPlay);
+  //     card.addEventListener("mouseleave", startAutoPlay);
+
+  //     // Start autoplay
+  //     startAutoPlay();
+
+  //     // Initialize first slide
+  //     updateCarousel(0);
+  //   });
+  // }
+  initCarousels() {
+    const cards = document.querySelectorAll(".diversity-card");
+
+    cards.forEach((card) => {
+      const track = card.querySelector(".carousel-track");
+      const slides = card.querySelectorAll(".carousel-slide");
+      const prevBtn = card.querySelector(".prev-btn");
+      const nextBtn = card.querySelector(".next-btn");
+      const indicators = card.querySelectorAll(".indicator");
+
+      if (!track || slides.length === 0) return;
+
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+      let autoPlayInterval;
+
+      // Update carousel display
+      const updateCarousel = (index) => {
+        // Safety check: ensure index is valid
+        if (index < 0 || index >= totalSlides) {
+          console.warn(`Invalid slide index: ${index}`);
+          return;
+        }
+
+        // Remove active class from all
+        slides.forEach((slide) => slide.classList.remove("active"));
+        indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+        // Add active class to current
+        slides[index].classList.add("active");
+
+        // Only update indicator if it exists
+        if (indicators[index]) {
+          indicators[index].classList.add("active");
+        }
+
+        // Announce to screen readers
+        const slideContentElement =
+          slides[index].querySelector(".slide-content h4");
+        if (slideContentElement) {
+          this.announceToScreenReader(
+            `Slide ${index + 1} of ${totalSlides}: ${slideContentElement.textContent}`,
+          );
+        }
+      };
+
+      // Go to specific slide
+      const goToSlide = (index) => {
+        currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+        updateCarousel(currentSlide);
+        resetAutoPlay();
+      };
+
+      // Next slide
+      const nextSlide = () => {
+        goToSlide(currentSlide + 1);
+      };
+
+      // Previous slide
+      const prevSlide = () => {
+        goToSlide(currentSlide - 1);
+      };
+
+      // Auto play
+      const startAutoPlay = () => {
+        autoPlayInterval = setInterval(nextSlide, 5000); // 5 seconds
+      };
+
+      const stopAutoPlay = () => {
+        if (autoPlayInterval) {
+          clearInterval(autoPlayInterval);
+        }
+      };
+
+      const resetAutoPlay = () => {
+        stopAutoPlay();
+        startAutoPlay();
+      };
+
+      // Event listeners
+      if (prevBtn) {
+        prevBtn.addEventListener("click", prevSlide);
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", nextSlide);
+      }
+
+      // Indicator clicks
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => goToSlide(index));
+      });
+
+      // Touch/swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      track.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAutoPlay();
+        },
+        { passive: true },
+      );
+
+      track.addEventListener(
+        "touchend",
+        (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+          startAutoPlay();
+        },
+        { passive: true },
+      );
+
+      const handleSwipe = () => {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            nextSlide(); // Swipe left
+          } else {
+            prevSlide(); // Swipe right
+          }
+        }
+      };
+
+      // Keyboard navigation
+      card.addEventListener("keydown", (e) => {
+        if (e.target.closest(".carousel-container")) {
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            prevSlide();
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            nextSlide();
+          }
+        }
+      });
+
+      // Pause on hover
+      card.addEventListener("mouseenter", stopAutoPlay);
+      card.addEventListener("mouseleave", startAutoPlay);
+
+      // Start autoplay
+      startAutoPlay();
+
+      // Initialize first slide
+      updateCarousel(0);
+    });
+  }
+
+  // ============================================
+  // MODAL FUNCTIONALITY
+  // ============================================
+
+  initModals() {
+    const cards = document.querySelectorAll(".diversity-card");
+    const modals = document.querySelectorAll(".modal-overlay");
+    const closeBtns = document.querySelectorAll(".modal-close");
+
+    // Open modal
+    cards.forEach((card) => {
+      const viewBtn = card.querySelector(".view-details-btn");
+      const modalId = card.dataset.modal;
+
+      if (viewBtn && modalId) {
+        viewBtn.addEventListener("click", () => {
+          this.openModal(modalId);
+        });
+      }
+    });
+
+    // Close modal buttons
+    closeBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const modal = e.target.closest(".modal-overlay");
+        if (modal) {
+          this.closeModal(modal);
+        }
+      });
+    });
+
+    // Close on overlay click
+    modals.forEach((modal) => {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          this.closeModal(modal);
+        }
+      });
+    });
+
+    // Close on ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        const activeModal = document.querySelector(".modal-overlay.active");
+        if (activeModal) {
+          this.closeModal(activeModal);
+        }
+      }
+    });
+  }
+
+  openModal(modalId) {
+    const modal = document.getElementById(`modal-${modalId}`);
+    if (!modal) return;
+
+    // Prevent body scroll
+    document.body.style.overflow = "hidden";
+
+    // Show modal
+    modal.classList.add("active");
+
+    // Focus on close button for accessibility
+    setTimeout(() => {
+      const closeBtn = modal.querySelector(".modal-close");
+      if (closeBtn) closeBtn.focus();
+    }, 300);
+
+    // Announce to screen readers
+    const title = modal.querySelector(".modal-header h3").textContent;
+    this.announceToScreenReader(`Dialog opened: ${title}`);
+  }
+
+  closeModal(modal) {
+    if (!modal) return;
+
+    // Hide modal
+    modal.classList.remove("active");
+
+    // Restore body scroll
+    document.body.style.overflow = "";
+
+    // Return focus to trigger button
+    const modalId = modal.id.replace("modal-", "");
+    const triggerCard = document.querySelector(`[data-modal="${modalId}"]`);
+    if (triggerCard) {
+      const viewBtn = triggerCard.querySelector(".view-details-btn");
+      if (viewBtn) viewBtn.focus();
+    }
+
+    // Announce to screen readers
+    this.announceToScreenReader("Dialog closed");
+  }
+
+  // ============================================
+  // SCROLL ANIMATIONS
+  // ============================================
+
+  initScrollAnimations() {
+    const cards = document.querySelectorAll(".diversity-card");
+
+    if (!("IntersectionObserver" in window)) {
+      // Fallback: show all cards immediately
+      cards.forEach((card) => (card.style.opacity = "1"));
+      return;
+    }
+
+    // Set initial state
+    cards.forEach((card) => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(30px)";
+      card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    });
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Stagger animation
+          setTimeout(() => {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }, index * 100);
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach((card) => observer.observe(card));
+  }
+
+  // ============================================
+  // ACCESSIBILITY
+  // ============================================
+
+  initAccessibility() {
+    // Make carousel buttons keyboard accessible
+    const carouselBtns = document.querySelectorAll(".carousel-btn");
+    carouselBtns.forEach((btn) => {
+      if (!btn.hasAttribute("tabindex")) {
+        btn.setAttribute("tabindex", "0");
+      }
+    });
+
+    // Make indicators keyboard accessible
+    const indicators = document.querySelectorAll(".indicator");
+    indicators.forEach((indicator, index) => {
+      if (!indicator.hasAttribute("tabindex")) {
+        indicator.setAttribute("tabindex", "0");
+      }
+      if (!indicator.hasAttribute("role")) {
+        indicator.setAttribute("role", "button");
+      }
+      if (!indicator.hasAttribute("aria-label")) {
+        indicator.setAttribute("aria-label", `Go to slide ${index + 1}`);
+      }
+
+      // Add keyboard support
+      indicator.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          indicator.click();
+        }
+      });
+    });
+
+    // Improve modal accessibility
+    const modals = document.querySelectorAll(".modal-overlay");
+    modals.forEach((modal) => {
+      if (!modal.hasAttribute("role")) {
+        modal.setAttribute("role", "dialog");
+      }
+      if (!modal.hasAttribute("aria-modal")) {
+        modal.setAttribute("aria-modal", "true");
+      }
+    });
+  }
+
+  // ============================================
+  // SCREEN READER ANNOUNCEMENTS
+  // ============================================
+
+  announceToScreenReader(message) {
+    // Create or get announcement element
+    let announcer = document.getElementById("diversity-announcer");
+
+    if (!announcer) {
+      announcer = document.createElement("div");
+      announcer.id = "diversity-announcer";
+      announcer.setAttribute("role", "status");
+      announcer.setAttribute("aria-live", "polite");
+      announcer.setAttribute("aria-atomic", "true");
+      announcer.style.cssText = `
+        position: absolute;
+        left: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      `;
+      document.body.appendChild(announcer);
+    }
+
+    // Clear and announce
+    announcer.textContent = "";
+    setTimeout(() => {
+      announcer.textContent = message;
+    }, 100);
+  }
+
+  // ============================================
+  // UTILITY: LAZY LOAD IMAGES
+  // ============================================
+
+  initLazyLoading() {
+    const images = document.querySelectorAll(".diversity-card img");
+
+    if (!("IntersectionObserver" in window)) {
+      return; // Images will load normally
+    }
+
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute("data-src");
+          }
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+
+    images.forEach((img) => {
+      // Only lazy load if data-src is set
+      if (img.dataset.src) {
+        imageObserver.observe(img);
+      }
+    });
+  }
+}
+
+// ============================================
+// INITIALIZE
+// ============================================
+
+// Auto-initialize when script loads
+new DiversitySection();
+
+// Also expose for manual initialization if needed
+window.DiversitySection = DiversitySection;
 // FAQ Toggle Function
 function toggleFAQ(element) {
   const faqItem = element.parentElement;
@@ -287,4 +837,18 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     closeMateriModal();
   }
+});
+// Back to Top Button Functionality
+const btn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    btn.classList.add("show");
+  } else {
+    btn.classList.remove("show");
+  }
+});
+
+btn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
